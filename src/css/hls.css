@@ -1,0 +1,209 @@
+header {
+  text-align: center;
+}
+
+.top {
+    margin-top: 20px;
+}
+
+.video {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 88px;
+    z-index: 2;
+}
+
+.middle{
+    clear:both;
+}
+
+.middle h4 {
+    text-align: center;
+}
+
+.channel{
+    transition: background-color 0.5s ease-in-out;
+    position: relative;
+    float: left;
+    margin: 3px;
+    border-radius: 4px;
+    border: 1px solid #7d7272;
+}
+
+.control{
+    overflow: auto;
+    float:left;
+    margin: 10px 0 10px 10px;
+    font-size: 0.7em;
+}
+
+#options {
+    margin-right: 25px;
+}
+
+.footer {
+    margin: 20px 0;
+}
+
+.events {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    z-index: 4; 
+    color: rgb(220, 251, 223);
+ }
+
+
+.panelqa {
+    width: 150px;
+    height: 18px;
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 0.7em;
+    font-weight: 500;
+    clear:both;
+}
+ 
+.log, .levels{
+    white-space: nowrap;
+    overflow: auto;
+    position: absolute;
+    width: 600px;
+    height: 150px;
+    margin-top: 3px;
+    padding-left: 3px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #efecec;
+    z-index: 5;
+} 
+
+.levels{
+    width: 165px;
+    height: auto;
+    text-align: center;
+    padding:2px;
+}
+
+.levels button {
+    width: 155px;
+}
+
+.ch_name, .log_button, .levels_button, .mute {
+    padding-top:2px;
+    float:left;
+}
+
+.ch_name {
+    width:70%;  
+    font-weight: bolder;
+}
+
+.mute {
+    padding-top:4px; 
+    padding-left:2px;
+    width:10%;
+    border-left:1px solid #7d7272;
+    cursor:pointer;
+}
+
+.on {
+    background-color: #ccc5c5;
+    font-weight:800;
+}
+
+.off {
+}
+
+.levels_button {
+    padding-top:4px;
+    width:10%;
+    border-left:1px solid #7d7272;
+    cursor:pointer;
+} 
+
+.log_button {
+    padding-top:4px;
+    width:10%;
+    border-left:1px solid #7d7272;
+    cursor:pointer;
+}
+
+.pushed {
+    background-color:#ccc5c5;
+}
+
+.hidden {
+    display:none;
+} 
+
+#form_error {
+    margin: 5px 0 40px 0;
+    color: red;
+}
+
+#done {
+    margin: 5px 0 40px 0;
+    color: green;
+}
+ 
+.td_url, .td_full_name {
+    text-align: left;
+    padding-left: 30px !important;
+}
+
+.td_delete span, .td_edit span{
+    cursor:pointer;
+}
+
+.edit_error {
+    display: none;
+    text-align: center;
+    color:red;
+}
+
+.white {
+    background-color: white;
+}
+
+.red {
+    background-color: #f00;
+}
+
+.green {
+    background-color: rgb(69, 179, 69);
+}
+#customButtons input { width: 25%; display : inline-block; text-align: center; font-size: 8pt;}
+#toggleButtons button { width: 12%; display : inline-block; text-align: center; font-size: 8pt; background-color: #A0A0A0 }
+
+.add_del_buttons {
+    float:left;
+    margin-top: 10px;
+}
+
+.rrdiv {
+    float:left;
+    margin-top: 12px;
+    margin-left: 100px;
+    height: 100%;
+}
+
+.rrdiv button {
+    width: 40px;
+}
+
+.window_name {
+    float: left;
+}
+
+.window_name input {
+    margin: 10px 5px 0 5px;
+    visibility: hidden;
+    width:0;
+    transition:  width 1s, visibility 1s;
+}

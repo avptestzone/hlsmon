@@ -1,0 +1,64 @@
+{% extends "head.html" %}
+
+{% block title %}
+<title>
+{% for window in windows_list %}
+    {% if window['id'] == current_window %} {{window['name']}} {% endif %}
+{% endfor %}
+</title>
+{% endblock title %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class=".col-lg-12">
+            <div class="control">
+                <button id="stream_button" type="button" class="btn btn-primary disabled">Запустить мониторинг</button>
+                <a id='options' class="btn btn-default" href="channels.php" role="button" target="_blank"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                {% for window in windows_list %}
+                <a id="{{ window['id'] }}" class="btn btn-info {% if window['id'] == current_window %} disabled {% endif %}" href="?window={{ window['id'] }}" role="button">{{ window['name'] }}</a>
+                {% endfor %}
+            </div>
+            <div class="window_name">
+                <input type="text" name="window_name" class="form-control" value="" required="required" pattern="" title=""> 
+            </div>
+            <div class="add_del_buttons">
+                <button type="button" class="btn btn-success add" onclick="showInputForWindowName()"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                <button type="button" class="btn btn-warning del" onclick="deleleCurrentWindow()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+            <div class="rrdiv">
+                Round Robin <button id='rr' type="button" class="btn btn-sm btn-default" onclick="rrToggle(this)" data-toggle="button" aria-pressed="false">Off</button>
+            </div>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class=".col-lg-12">
+	        <div class='middle'>
+            {% block channels %}{% endblock channels %}
+	        </div>
+	    </div>
+	</div>        
+
+    <div class="row">
+        <div class=".col-lg-12">
+            <div class="footer"></div>
+        </div>
+    </div> 
+</div>
+
+<script type="text/javascript">
+var channels=[];
+
+{% for channel in channels_list %}
+var {{channel['name']}} = new channelObject('{{channel['name']}}','{{channel['url']}}');
+channels.push({{channel['name']}});
+var {{channel['name']}}Callback = function(eventName, args) { 
+    {{channel['name']}}[eventName](...args);  
+}
+{% endfor %}
+</script>
+
+<script type="text/javascript" src="js/index.js"></script>
+
+{% endblock body %}

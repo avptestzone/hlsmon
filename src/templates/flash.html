@@ -1,0 +1,46 @@
+{% extends "body.html" %}
+
+{% block channels %}
+
+{% for channel in channels_list %}
+<div id='{{ channel['name'] }}' class='channel white'>             
+    <div class='video'>
+        <object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='' id="{{ channel['name'] }}_movie" width='150' height='88'> 
+            <param name='movie'  value='as/debug/test.swf?inline=1' /> 
+            <param name='quality' value='autohigh' /> 
+            <param name='swliveconnect' value='true' /> 
+            <param name='allowScriptAccess' value='sameDomain' /> 
+            <param name='bgcolor' value='#0' /> 
+            <param name='allowFullScreen' value='true' /> 
+            <param name='wmode' value='window' /> 
+            <param name='FlashVars' value="callback={{ channel['name'] }}Callback" /> 
+
+            <embed src='as/debug/test.swf?inline=1' 
+                width='150' 
+                height='88' 
+                name="{{ channel['name'] }}_movie" 
+                quality='autohigh' 
+                bgcolor='#0' 
+                align='middle' allowFullScreen='true' 
+                allowScriptAccess='sameDomain' 
+                type='application/x-shockwave-flash' 
+                swliveconnect='true' 
+                wmode='window' 
+                FlashVars="callback={{ channel['name'] }}Callback"
+                pluginspage='http://www.macromedia.com/go/getflashplayer' >  
+            </embed> 
+        </object> 
+    </div> 
+    <div class='events'></div> 
+    <div class='panelqa'> 
+        <div class='ch_name'>{{ channel['full_name'] }}</div> 
+        <div class='mute off'><span class='glyphicon glyphicon-volume-off' aria-hidden='true'></span></div>   
+        <div class='levels_button'><span class='glyphicon glyphicon-menu-hamburger' aria-hidden='true'></div> 
+        <div class='log_button'>L</div> 
+    </div> 
+    <div class='levels hidden'></div> 
+    <div class='log hidden'></div>        
+</div>
+{% endfor %}
+
+{% endblock %}
